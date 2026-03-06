@@ -5,6 +5,7 @@ WORKDIR /app
 COPY pyproject.toml .
 COPY src/ /app/
 COPY supervisord.conf /etc/supervisord.conf
+COPY README.md .
 
 RUN pip install uv && uv pip install --system . && uv pip install --system supervisor
 
