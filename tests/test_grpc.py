@@ -11,9 +11,9 @@ def grpc_stub():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
 
     class Servicer(inference_pb2_grpc.TextClassifierServicer):
-        def Predict(self, req, context):
+        def Predict(self, request, context):
             return inference_pb2.TextClassificationOutput(
-                is_toxic=service.predict_toxic(req.text)
+                is_toxic=service.predict_toxic(request.text)
             )
 
     inference_pb2_grpc.add_TextClassifierServicer_to_server(Servicer(), server)

@@ -58,8 +58,8 @@ def run_http():
 
 
 class TextClassifierServicer(inference_pb2_grpc.TextClassifierServicer):
-    def Predict(self, req, context):
-        return inference_pb2.TextClassificationOutput(is_toxic=predict_toxic(req.text))
+    def Predict(self, request, context):
+        return inference_pb2.TextClassificationOutput(is_toxic=predict_toxic(request.text))
 
 
 def run_grpc():

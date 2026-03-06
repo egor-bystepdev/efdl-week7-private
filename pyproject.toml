@@ -24,6 +24,12 @@ packages = ["src"]
 source = ["src"]
 omit = ["src/inference_pb2.py", "src/inference_pb2_grpc.py"]
 
+[tool.ruff]
+exclude = ["src/inference_pb2.py", "src/inference_pb2_grpc.py"]
+
+[tool.ty.rules]
+unresolved-attribute = "warn"
+
 [tool.isort]
 profile = "black"
 
@@ -34,4 +40,6 @@ dev = [
     "grpcio-tools>=1.60",
     "black>=24.0",
     "isort>=5.13",
+    "ruff>=0.4",
+    "ty>=0.0.1a0",
 ]
