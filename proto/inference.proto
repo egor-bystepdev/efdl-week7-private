@@ -1,0 +1,14 @@
+syntax = "proto3";
+package inference;
+
+service TextClassifier {
+  rpc Predict(TextClassificationInput) returns (TextClassificationOutput);
+}
+
+message TextClassificationInput {
+  string text = 1;
+}
+
+message TextClassificationOutput {
+  bool is_toxic = 1;
+}
